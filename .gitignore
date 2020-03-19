@@ -1,0 +1,33 @@
+# IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Gradle
+.gradle
+out/
+build/**
+**/build/
+
+# Maven
+log/
+target/
+
+# Mac
+.DS_Store
+
+# Eclipse
+**/*.project
+**/*.classpath
+**/*.settings
+
+# Project
+**/src/querydsl/*
+**/src/jooq/*
+**/.txlcn/**
+*.hprof
+logs/
+*.log
+**/*.log
+**/*.log.*

@@ -1,0 +1,53 @@
+plugins {
+    id "java"
+    id "idea"
+    id "org.springframework.boot" version "2.1.12.RELEASE"
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+    id "io.freefair.lombok" version "5.0.0-rc4" apply false
+    id "io.freefair.maven-optional" version "5.0.0-rc4" apply false
+}
+
+allprojects {
+    group 'springboot.examples'
+    version '1.0.0'
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/central" }
+        mavenCentral()
+        maven { url 'https://repo.spring.io/libs-milestone' }
+        maven { url 'https://repo.spring.io/libs-snapshot' }
+    }
+}
+
+// 配置所有子模块
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'io.freefair.lombok'
+    apply plugin: 'io.freefair.maven-optional'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    tasks.withType(JavaCompile) { options.encoding = 'utf-8' }
+
+    ext {
+        springBootVersion = '2.2.4.RELEASE'
+        springCloudVersion = 'Hoxton.RELEASE'
+        lombokVersion = '1.18.10'
+    }
+
+    dependencies {
+        compileOnly("org.projectlombok:lombok:${lombokVersion}")
+        annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}

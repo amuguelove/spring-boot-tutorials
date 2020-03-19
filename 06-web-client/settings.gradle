@@ -1,0 +1,4 @@
+rootProject.name = '06-web-client'
+
+include 'resttemplate-demo'
+include 'webclient-demo'

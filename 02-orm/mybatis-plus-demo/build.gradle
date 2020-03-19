@@ -1,0 +1,6 @@
+
+dependencies {
+    runtimeOnly("com.h2database:h2")
+    implementation("com.baomidou:mybatis-plus-boot-starter:3.3.1")
+    implementation("com.github.amuguelove:p6spy-spring-boot-autoconfigure:1.0.0")
+}

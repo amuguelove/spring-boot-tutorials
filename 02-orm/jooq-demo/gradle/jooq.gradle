@@ -1,0 +1,60 @@
+dependencies {
+    jooqRuntime('mysql:mysql-connector-java')
+}
+
+jooq {
+    version = '3.12.3'
+    edition = 'OSS'
+    test(sourceSets.main) {
+        jdbc {
+            driver = jdbcDriver
+            url = jdbcUrl
+            user = jdbcUser
+            password = jdbcPassword
+        }
+        generator {
+            name = 'org.jooq.codegen.DefaultGenerator'
+            database {
+                name = 'org.jooq.meta.mysql.MySQLDatabase'
+                inputSchema = 'test'
+                includes = '.*'
+                excludes = '(databasechangelog.*)'
+                forcedTypes {
+                    forcedType {
+                        name = 'BOOLEAN'
+                        expression = '.*\\.IS_.*'
+                        types = '.*'
+                    }
+                }
+
+            }
+            generate {
+                records = true
+                pojos = true
+                javaTimeTypes = true
+            }
+            target {
+                packageName = 'com.flygopher.jooq'
+                directory = 'src/jooq/java/'
+            }
+        }
+    }
+}
+
+task lombokAnns  {
+    doLast {
+        ant.replaceregexp(match: 'package com.flygopher.jooq.tables.pojos;', replace: 'package com.flygopher.jooq.tables.pojos;\r\nimport lombok.Builder;\r\n', flags: 'g', byline: true) {
+            fileset(dir: 'src/jooq/java/com/flygopher/jooq/tables/pojos/', includes: '*.java')
+        }
+        ant.replaceregexp(match: 'public class', replace: '@Builder\r\npublic class', flags: 'g', byline: true) {
+            fileset(dir: 'src/jooq/java/com/flygopher/jooq/tables/pojos/', includes: '*.java')
+        }
+    }
+}
+
+
+//generateTestJooqSchemaSource.dependsOn update // liquibase
+generateTestJooqSchemaSource.dependsOn flywayMigrate    // flyway
+
+generateTestJooqSchemaSource.finalizedBy lombokAnns
+

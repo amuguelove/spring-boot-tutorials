@@ -1,0 +1,11 @@
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: com.flygopher.handler
+
+pagehelper:
+  offset-as-page-num: true
+  page-size-zero: true
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

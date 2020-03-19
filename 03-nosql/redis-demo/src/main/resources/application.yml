@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 5
+        min-idle: 5
+    timeout: 5s

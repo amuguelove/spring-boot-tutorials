@@ -1,0 +1,12 @@
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2")
+
+    implementation("org.joda:joda-money:1.0.1")
+    implementation("org.jadira.usertype:usertype.core:6.0.1.GA")
+    implementation('org.apache.commons:commons-pool2')
+}

@@ -1,0 +1,5 @@
+rootProject.name = '01-jdbc'
+
+include 'hikaricp-demo'
+include 'druid-demo'
+include 'multi-datasource-demo'

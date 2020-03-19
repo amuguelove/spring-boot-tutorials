@@ -1,0 +1,5 @@
+rootProject.name = '03-nosql'
+
+include 'mongo-demo'
+include 'redis-demo'
+include 'cache-demo'

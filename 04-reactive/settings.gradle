@@ -1,0 +1,6 @@
+rootProject.name = '04-reactive'
+
+include 'reactor-demo'
+include 'r2dbc-demo'
+include 'redis-demo'
+include 'mongo-demo'

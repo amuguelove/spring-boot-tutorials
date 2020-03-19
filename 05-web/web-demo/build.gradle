@@ -1,0 +1,16 @@
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-cache')
+
+    runtimeOnly("com.h2database:h2")
+
+    implementation("org.joda:joda-money:1.0.1")
+    implementation("org.jadira.usertype:usertype.core:6.0.1.GA")
+
+    implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8')
+    implementation('com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8')
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.9.8")
+    implementation("org.apache.commons:commons-lang3")
+}

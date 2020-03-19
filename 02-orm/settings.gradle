@@ -1,0 +1,8 @@
+rootProject.name = '02-orm'
+
+include 'jpa-demo'
+include 'mybatis-demo'
+include 'mybatis-pagehelper-demo'
+include 'mybatis-plus-demo'
+include 'jpa-querydsl-demo'
+include 'jooq-demo'

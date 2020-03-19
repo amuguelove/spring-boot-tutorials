@@ -1,0 +1,40 @@
+rootProject.name = 'spring-boot-tutorials'
+
+include '01-jdbc'
+include '01-jdbc:hikaricp-demo'
+include '01-jdbc:druid-demo'
+include '01-jdbc:multi-datasource-demo'
+
+
+include '02-orm'
+include '02-orm:jpa-demo'
+include '02-orm:mybatis-demo'
+include '02-orm:mybatis-pagehelper-demo'
+include '02-orm:mybatis-plus-demo'
+include '02-orm:jpa-querydsl-demo'
+include '02-orm:jooq-demo'
+
+
+include '03-nosql'
+include '03-nosql:mongo-demo'
+include '03-nosql:redis-demo'
+
+
+include '04-reactive'
+include '04-reactive:reactor-demo'
+include '04-reactive:r2dbc-demo'
+include '04-reactive:redis-demo'
+include '04-reactive:mongo-demo'
+
+
+include '05-web'
+include '05-web:web-demo'
+
+
+include '06-web-client'
+include '06-web-client:resttemplate-demo'
+include '06-web-client:webclient-demo'
+
+
+include '07-web-advanced'
+include '07-web-advanced:webflux-demo'

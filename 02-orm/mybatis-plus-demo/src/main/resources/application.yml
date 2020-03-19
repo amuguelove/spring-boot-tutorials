@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:h2:mem:test
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:test
+    username: root
+    password: test
+
+mybatis-plus:
+  type-handlers-package: com.flygopher.handler
+  global-config:
+    db-config:
+      logic-delete-value: 1   #逻辑删除配置
+  configuration:
+    map-underscore-to-camel-case: true   # 原生配置
+    cache-enabled: false
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+p6spy:
+  config:
+    enabled: true
+    appender: com.p6spy.engine.spy.appender.Slf4JLogger
+    logMessageFormat: com.p6spy.engine.spy.appender.CustomLineFormat
+    customLogMessageFormat: 时间：%(currentTime) | SQL耗时： %(executionTime) ms | 连接信息： %(category)-%(connectionId) | 执行语句： %(sql)
+
